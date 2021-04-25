@@ -20,6 +20,9 @@ function App() {
       <Product></Product>
       <Product></Product>
       <Product></Product>
+      <Product></Product>
+      <Product></Product>
+      <Product></Product>
       </div>
       <Footer></Footer>
     </div>
