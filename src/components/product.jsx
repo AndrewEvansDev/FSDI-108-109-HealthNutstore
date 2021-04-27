@@ -1,22 +1,26 @@
 import React, { Component } from "react";
 import QuantityPicker from "./quantityPicker";
 import "./product.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Product extends Component {
   state = {};
   render() {
     return (
       <div className="card">
-        <img src="https://picsum.photos/200" class="card-img-top" alt="..." />
+        <img
+          src={"/images/products/" + this.props.data.image}
+          class="card-img-top"
+          alt="..."
+        />
         <div className="card-body">
-          <h5 className="card-title">Product</h5>
+          <h5 className="card-title">{this.props.data.title}</h5>
           <p className="card-text">
             A bunch of stuff written a bout the product!.
           </p>
           <QuantityPicker></QuantityPicker>
-          <a href="#" className="btn btn-primary">
-            Add to cart
-          </a>
+          <a href="#" className="cart-btn"></a>
+          <FontAwesomeIcon icon="facartplus"></FontAwesomeIcon>
         </div>
       </div>
     );

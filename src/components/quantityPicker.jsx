@@ -20,7 +20,6 @@ class QuantityPicker extends Component {
     );
   }
   increase = () => {
-    console.log("increase!");
     this.setState({ quantity: this.state.quantity + 1 });
   };
   decrease = () => {

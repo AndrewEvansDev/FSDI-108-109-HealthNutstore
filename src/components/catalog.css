@@ -1,0 +1,16 @@
+:root{
+    --highlight:#3d5a80;
+    --sec:#98c1d9;
+    --bg:#e0fbfc;
+    --btn:#ee6c4d;
+    --text:#293241; 
+}
+
+div.catalog-page{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    padding: 1rem;
+    background-color: var(--bg);
+    grid-gap: 1rem;
+    }
