@@ -19,6 +19,9 @@ div.product-wrap{
     min-height: 250px;
     background-position:center;
 }
+div.product-wrap:hover{
+    background-size: 110%;
+}
 .top-wrap{
     display:flex;
     justify-content: space-between;
