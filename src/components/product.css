@@ -5,6 +5,10 @@
     --btn:#ee6c4d;
     --text:#293241; 
 }
+div.product-wrap{
+    -webkit-box-shadow: 2px 3px 6px 4px rgba(61,90,128,0.75); 
+    box-shadow: 2px 3px 6px 4px rgba(61,90,128,0.75);
+}
 .product-wrap{
     border:5px solid var(--sec);
     flex:1;
