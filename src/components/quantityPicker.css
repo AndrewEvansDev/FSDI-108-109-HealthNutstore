@@ -7,23 +7,35 @@
 }
 .quantity-picker{
     display:flex;
-    flex-direction: column;
-}
-.quantity-picker span{
-    color:--text;
-    margin:0, .5rem;
+    max-width:fit-content;
+    margin-right:1rem;
 }
 .quantity-picker:hover{
-    filter:invert(100%);
     cursor: pointer;
 }
-.plusminus-wrap{
-    display:flex;
-    flex-direction:row;
-    font-size:2rem;
-    letter-spacing: 5px;
-    justify-content: space-evenly;
-    background-color: var(--bg);
-    padding:5px 3px;
-    border-radius: 50px;
+.plus{
+    font-size:1.5rem;
+    align-self: center;
+    color:var(--bg);
+    margin-right:-1.75rem;
+    z-index:10;
+}
+.minus{
+    font-size:1.5rem;
+    align-self: center;
+    color:var(--bg);
+    margin-left:-1.75rem;
+}
+span.plus:hover,span.minus:hover{
+    color:var(--btn);
+}
+.qnt{
+    border:1px solid var(--highlight);
+    background-color:var(--highlight);
+    color:var(--bg);
+    border-radius: 20px;
+    padding:0.2rem 2rem;
+    margin:.2rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    align-self:center;
 }
