@@ -3,28 +3,31 @@ import "./quantityPicker.css";
 
 class QuantityPicker extends Component {
   state = {
-    quantity: 1,
+    quantity: 0,
     name: "Andrew",
   };
   render() {
     return (
       <div className="quantity-picker">
-        <button className="btn btn-sm" onClick={this.decrease}>
-          -
-        </button>
-        <label>{this.state.quantity}</label>
-        <button className="btn btn-sm" onClick={this.increase}>
-          +
-        </button>
+        <div className="plusminus-wrap">
+          <span>{this.state.quantity}</span>
+          <span onClick={this.increase}>+</span>
+          <span onClick={this.decrease}>-</span>
+        </div>
+        <div className="icon-cart-wrap"></div>
       </div>
     );
   }
   increase = () => {
-    this.setState({ quantity: this.state.quantity + 1 });
+    var newQnty = this.state.quantity + 1;
+    this.setState({ quantity: newQnty + 1 });
+    this.props.onValueChange();
   };
   decrease = () => {
-    if (this.state.quantity > 0) {
-      this.setState({ quantity: this.state.quantity - 1 });
+    var newQnty = this.state.quantity;
+    if (newQnty > 0) {
+      this.setState({ quantity: newQnty - 1 });
+      this.props.onValueChange();
     }
   };
 }

@@ -5,11 +5,25 @@
     --btn:#ee6c4d;
     --text:#293241; 
 }
-.quantity-picker button{
+.quantity-picker{
+    display:flex;
+    flex-direction: column;
+}
+.quantity-picker span{
     color:--text;
     margin:0, .5rem;
-    background-color:var(--bg);
 }
-.quantity-picker label{
-    padding: 0 .5rem;
+.quantity-picker:hover{
+    filter:invert(100%);
+    cursor: pointer;
+}
+.plusminus-wrap{
+    display:flex;
+    flex-direction:row;
+    font-size:2rem;
+    letter-spacing: 5px;
+    justify-content: space-evenly;
+    background-color: var(--bg);
+    padding:5px 3px;
+    border-radius: 50px;
 }

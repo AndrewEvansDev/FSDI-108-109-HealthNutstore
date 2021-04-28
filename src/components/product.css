@@ -5,12 +5,27 @@
     --btn:#ee6c4d;
     --text:#293241; 
 }
-.card{
-    width:18rem;
+.product-wrap{
+    background-color: var(--sec);
+    border:5px solid var(--sec);
+}
+.product-content-wrap{
+    width:300px;
     background-color:var(--sec);
     color:var(--text);
+    display:flex;
 
 }
-.cart-btn i{
-    width:100px;
+
+.product-image{
+    max-width:200px;
+}
+h5.product-title{
+    color:var(--text);
+    text-align: left;
+    margin-left:1rem;
+}
+.product-info{
+    width:fit-content;
+    margin: auto;
 }
