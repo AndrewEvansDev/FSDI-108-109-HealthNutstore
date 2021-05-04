@@ -3,7 +3,6 @@ import "./product.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import QuantityPicker from "./quantityPicker";
-import { faRProject } from "@fortawesome/free-brands-svg-icons";
 
 class Product extends Component {
   state = {
@@ -15,16 +14,15 @@ class Product extends Component {
     return (
       <div
         style={{
-          backgroundImage: `url(${`/images/products/`}${
-            this.props.data.image
-          })`,
+          backgroundImage: `url(${`/images/products/`}${this.props.data.image
+            })`,
         }}
         className="product-wrap"
       >
         <div className="top-wrap">
           <h5 className="product-title">{this.props.data.title}</h5>
           <QuantityPicker
-            onValueChange={this.handleQuantityChange}
+            onValueChange={this.handleQuantityChange} minimum={this.props.data.mimimum || 1}
           ></QuantityPicker>
         </div>
         <div className="bottom-wrap">
@@ -32,6 +30,7 @@ class Product extends Component {
           <h5 className="product-price">
             ${this.state.totalPurchase.toFixed(2)}
           </h5>
+          <h6>{this.getTotal()}</h6>
 
           <span>
             <FontAwesomeIcon
@@ -39,10 +38,17 @@ class Product extends Component {
               className="cart-icon"
               size="2x"
             />
+            <i className="fas fa-cart-plus"></i>
           </span>
         </div>
       </div>
     );
+  }
+
+
+  getTotal() {
+    var total = this.state.quantity * this.props.data.price;
+    return "$ " + total.toFixed(2);
   }
 
   handleQuantityChange = (qty) => {

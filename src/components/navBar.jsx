@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import "./navBar.css";
+import { Link } from "react-router-dom";
 
 class NavBar extends Component {
   render() {
     return (
       <nav className="nav-custom navbar navbar-expand-lg">
-        <a className="navbar-brand nav-custom" href="#">
-          <img src="../../images/001-health.svg"></img> Health Nut Store
-        </a>
+        <Link className="navbar-brand nav-custom" to="/">
+          <img src="../../images/001-health.svg" alt=""></img> Health Nut Store
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -21,15 +22,15 @@ class NavBar extends Component {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-link active" href="#">
+            <Link className="nav-link active" to="/">
               Home <span className="sr-only">(current)</span>
-            </a>
-            <a className="nav-link" href="#">
-              Features
-            </a>
-            <a className="nav-link" href="#">
-              Pricing
-            </a>
+            </Link>
+            <Link className="nav-link" to="/catalog">
+              Catalog
+            </Link>
+            <Link className="nav-link" to="/grocerylist">
+              GroceryList
+            </Link>
           </div>
         </div>
       </nav>
