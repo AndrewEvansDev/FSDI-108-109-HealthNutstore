@@ -41,9 +41,10 @@ class Catalog extends Component {
   clearFilter = () => {
     this.setState({ selectedCategory: "" })
   }
-  componentDidMount() {
+  async componentDidMount() {
     var service = new ProductService();
-    var catalog = service.getCatalog();
+    var catalog = await service.getCatalog();
+    
     var cats = [];
     for (let i = 0; i < catalog.length; i++) {
       let product = catalog[i];

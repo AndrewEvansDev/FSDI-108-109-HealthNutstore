@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import ProductService from "../services/product-service";
 import "./grocerylist.css";
+import {connect} from "react-redux";
+import { addGroceryItem } from '../store/actions';
+import {removeGroceryItem} from '../store/actions';
 
 class GroceryList extends Component {
   state = {
     food:"",
-    list: [],
+    // list: [],
     inventory: []
   };
   render() {
@@ -15,15 +18,15 @@ class GroceryList extends Component {
         <select onChange={this.onSelectChange} id="food-select">
         <option selected disabled>Select item</option>
           {this.state.inventory.map(item => (
-            <option key={item.id} value={item.title}>{item.title}</option>
+            <option key={parseInt(1000*parseInt(Math.random(10))/100*parseInt(Math.random(10)))} value={item.title}>{item.title}</option>
           ))}
         </select>
 
         <button onClick={this.addFood}>Add</button>
 
         <ul className="food-list">
-          {this.state.list.map((food) => (
-            <li className="groceryList-li" key={food.id}>{food.title}</li>
+          {this.props.food.map((food,index) => (
+            <li className="groceryList-li" key={food.id+index}>{food.title}  {food.price}<button onClick={()=>{this.removeItem(food)}}>Del</button></li>
             
           ))}
         </ul>
@@ -36,36 +39,31 @@ class GroceryList extends Component {
     this.setState({ food: food });
   };
   addFood = () => {
-    var listCopy = this.state.list;
+    // var listCopy = [...this.state.list];
     var food = this.state.food;
-    var catalogCopy = this.state.inventory;
-    catalogCopy = catalogCopy.filter(f=>f.title ===food);
-    console.log(catalogCopy);
-    listCopy.push(catalogCopy);    
-    this.setState({list:listCopy});
-    console.log(listCopy)
-
-    console.log(listCopy.length)
+    var catalogCopy = [...this.state.inventory];
+    catalogCopy = catalogCopy.filter(f=>f.title ===food)[0];
+    // listCopy.push(catalogCopy);    
+    // this.setState({list:listCopy});
+    this.props.addGroceryItem(food);
   };
-  removeItem = (id) => {
-    this.setState((prevState) => {
-      return {
-        list: prevState.list.filter((i) => i.id !== id),
-      };
-    });
-  };
-  componentDidMount() {
+  removeItem = (food) =>{
+    // var copy = [...this.props.groceryList];
+    // copy = copy.splice(index,1);
+    // this.setState({list:copy});
+    this.props.removeGroceryItem(food);
+  }
+  async componentDidMount() {
     var service = new ProductService();
-    var catalog = service.getCatalog();
+    var catalog = await service.getCatalog();
     this.setState({ inventory: catalog });
   }
 }
 
-export default GroceryList;
+const mapStateToProps = (state)=>{
+  return {
+  food:state
+  }
+}
+export default connect(mapStateToProps,{addGroceryItem,removeGroceryItem})(GroceryList);
 
-/*
- * create an array on the state
- * push the text to the array on click
- * display the list of foods
- *
- */

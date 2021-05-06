@@ -1,21 +1,23 @@
-:root{
-    --highlight:#3d5a80;
-    --sec:#98c1d9;
-    --bg:#e0fbfc;
-    --btn:#ee6c4d;
-    --text:#293241; 
+:root {
+    --highlight: #3d5a80;
+    --sec: #98c1d9;
+    --bg: #e0fbfc;
+    --btn: #ee6c4d;
+    --text: #293241;
 }
 
-.footer-wrap{
-    display:flex;
+.footer-wrap {
+    display: flex;
     justify-content: space-between;
     bottom: 0;
     width: 100%;
-    height:7vh;
-    background-color:var(--sec);
-    color:var(--text);
+    height: 7vh;
+    background-color: var(--sec);
+    color: var(--text);
+    position: absolute;
 }
-.footer-item{
-    flex:1;
-    padding:1rem;
+
+.footer-item {
+    flex: 1;
+    padding: 1rem;
 }

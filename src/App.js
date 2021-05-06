@@ -6,7 +6,7 @@ import HomePage from "./components/homePage";
 import Catalog from "./components/catalog";
 import GroceryList from "./components/grocerylist";
 import Footer from "./components/footer";
-
+import AboutMe from "./components/about";
 
 import {} from "react-router-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -17,7 +17,8 @@ function App() {
         <div className = "App">
         <NavBar> </NavBar> 
         <Switch>
-        <Route path = "/" exact component={HomePage}></Route> 
+        <Route path = "/" exact component={HomePage}></Route>
+        <Route path = "/about" component={AboutMe}></Route>
         <Route path = "/catalog" exact component={Catalog}></Route> 
         <Route path = "/grocerylist" exact component={GroceryList}></Route> 
         </Switch> 

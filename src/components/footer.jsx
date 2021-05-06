@@ -7,7 +7,7 @@ class Footer extends Component {
         return ( 
 
             <footer className="footer-wrap">
-                <div className="footer-item">Left Comp</div><div className="footer-item">Right Comp</div>
+                <div className="footer-item"><small>&#169; Andrew Evans 2021</small></div><div className="footer-item">Health-Nut-Store</div>
             </footer>
 
         );

@@ -1,3 +1,5 @@
+import axios from "axios";
+
 var data = [{
         id: "5f40a6baac77a903d8f682c6",
         price: .49,
@@ -144,9 +146,15 @@ var data = [{
     },
 ];
 class ProductService {
-    getCatalog() {
-        return data;
+    serverUrl = 'http://fsdi.azurewebsites.net/api';
+    async getCatalog() {
+
+        //use local data if server stops working.
+        // return data;
         //logic to connect to server and retrieve catalog
+        // axios.post axios.delete
+        var res = await axios.get(this.serverUrl + "/products");
+        return res.data;
     }
 }
 
