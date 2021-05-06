@@ -9,7 +9,7 @@ export const addGroceryItem = (food) => {
 export const removeGroceryItem = (food) => {
 
     return {
-        type: "ADD_GROCERY_ITEM",
+        type: "REMOVE_GROCERY_ITEM",
         payload: food,
     }
 }

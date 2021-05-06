@@ -18,15 +18,15 @@ class GroceryList extends Component {
         <select onChange={this.onSelectChange} id="food-select">
         <option selected disabled>Select item</option>
           {this.state.inventory.map(item => (
-            <option key={parseInt(1000*parseInt(Math.random(10))/100*parseInt(Math.random(10)))} value={item.title}>{item.title}</option>
+            <option key={item.id} value={item.title}>{item.title}</option>
           ))}
         </select>
 
         <button onClick={this.addFood}>Add</button>
 
         <ul className="food-list">
-          {this.props.food.map((food,index) => (
-            <li className="groceryList-li" key={food.id+index}>{food.title}  {food.price}<button onClick={()=>{this.removeItem(food)}}>Del</button></li>
+          {this.props.food.map((food) => (
+            <li className="groceryList-li" key={parseInt(parseInt(Math.random()*10000)/parseInt(Math.random()*235)*parseInt(Math.random()*53))}>{food.title}  {food.price}<button onClick={()=>{this.removeItem(food)}}>Del</button></li>
             
           ))}
         </ul>
