@@ -13,3 +13,20 @@ export const removeGroceryItem = (food) => {
         payload: food,
     }
 }
+
+export const clearGroceryList = () => {
+
+    return {
+        type: "CLEAR_GROCERY_LIST",
+    }
+
+}
+
+export const addToCart = (food) => {
+
+    return {
+        type: "ADD_TO_CART",
+        payload: food,
+    }
+
+}

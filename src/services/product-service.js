@@ -154,6 +154,7 @@ class ProductService {
         //logic to connect to server and retrieve catalog
         // axios.post axios.delete
         var res = await axios.get(this.serverUrl + "/products");
+
         return res.data;
     }
 }

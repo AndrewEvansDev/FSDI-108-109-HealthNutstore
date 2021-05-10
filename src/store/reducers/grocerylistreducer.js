@@ -9,9 +9,12 @@ const groceryListReducer = (state = [], action) => {
             return copy;
 
         case "REMOVE_GROCERY_ITEM":
-            var copy = [...state];
-            copy = copy.filter(t => t !== action.payload);
-            return copy;
+            var recopy = [...state];
+            recopy = recopy.filter(t => t !== action.payload);
+            return recopy;
+
+        case "CLEAR_GROCERY_LIST":
+            return [];
 
         default:
             return state;

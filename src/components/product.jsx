@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./product.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import QuantityPicker from "./quantityPicker";
+import {addToCart} from "../store/actions";
+import {connect} from "react-redux";
 
 class Product extends Component {
   state = {
@@ -32,19 +32,22 @@ class Product extends Component {
           </h5>
           <h6>{this.getTotal()}</h6>
 
-          <span>
-            <FontAwesomeIcon
-              icon={faCartPlus}
-              className="cart-icon"
-              size="2x"
-            />
-            <i className="fas fa-cart-plus"></i>
+          <span onClick={this.handleAddToCart}>
+          <i className="fa fa-cart-plus" aria-hidden="true"></i>
+
           </span>
         </div>
       </div>
     );
   }
-
+handleAddToCart = (food) =>{
+  var food = {...this.props.data};
+  console.log(food);
+  console.log(food.quantity);
+  console.log(this.state.quantity);
+  food.quantity = this.state.quantity;
+  this.props.addToCart(food);
+}
 
   getTotal() {
     var total = this.state.quantity * this.props.data.price;
@@ -59,4 +62,4 @@ class Product extends Component {
     });
   };
 }
-export default Product;
+export default connect(null,{addToCart})(Product);
