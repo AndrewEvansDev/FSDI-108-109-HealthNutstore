@@ -1,3 +1,55 @@
 div.listWrap {
     min-height: 700px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 60%;
+}
+
+.listWrap h3 {
+    text-align: left;
+}
+
+div.food-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+}
+
+div.groceryList-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+div.top-wrap {
+    display: flex;
+    padding: 1rem;
+}
+
+.select-wrap select {
+    width: 200px;
+    height: 30px;
+}
+
+div.select-wrap {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+div.grocery-list-desc {
+    margin-right: 1rem;
+    margin-left: auto;
+}
+
+button.grocery-list-delete-button {
+    background: none;
+    border: none;
+}
+
+button.grocery-list-delete-button i {
+    font-size: 1.3rem;
+    color: red;
 }

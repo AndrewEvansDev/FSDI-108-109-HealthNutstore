@@ -1,75 +1,105 @@
 import React, { Component } from "react";
 import ProductService from "../services/product-service";
 import "./grocerylist.css";
-import {connect} from "react-redux";
-import { addGroceryItem } from '../store/actions';
-import {removeGroceryItem} from '../store/actions';
+import { connect } from "react-redux";
+import { addGroceryItem } from "../store/actions";
+import { removeGroceryItem } from "../store/actions";
 
 class GroceryList extends Component {
+  selectRef = React.createRef();
   state = {
     inventory: [],
-    food:"",
+    food: ""
+    
   };
+  
   render() {
     return (
+      
       <div className="listWrap">
+        {console.log('rendering')}
+        <div className="top-wrap">
         <h3>Shopping List</h3>
-        <select value={this.state.food} onChange={this.handleSelect} id="food-select">
-          {this.state.inventory.map(option => (
-            <option value={option.id} key={option.id}>{option.title}</option>
+        <div className="select-wrap">
+        <select
+        ref={this.selectRef}
+          onChange={this.handleSelect}
+          id="food-select"
+        >
+          <option value={666}>Select a food</option>
+          {this.state.inventory.map((option) => (
+            <option value={option.id} key={option.id}>
+              {option.title}
+            </option>
           ))}
         </select>
         <button onClick={this.addFood}>Add</button>
+        </div>
+        </div>
 
-
-        <ul className="food-list">
-        {this.props.food.map((food,index) => (
-            <li className="groceryList-li" key={index}>{food.title} {food.price}<button onClick={(index)=>{this.removeItem(index)}}><i className="fa fa-trash-o" aria-hidden="true"></i></button></li>
+        <div className="food-list">
+          {this.props.food.map((food, index) => (
+            <div className="groceryList-child" key={index}>
+              <div>{food.title}</div>
+              <div className="grocery-list-desc">Description of food, receipe, reminders related to it about health.
+              </div>
+                <button className="grocery-list-delete-button" onClick={() => {this.removeItem(food)}}>
+                  <i className="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     );
-  }
-  createKey = () => {
-    return parseInt(parseInt(Math.random()*10000)/parseInt(Math.random()*235)*parseInt(Math.random()*53));
-  }
+  };
   handleSelect = (e) => {
     var food = e.target.value;
-    this.setState({food:food});
-  }
-  
+    this.setState({ food: food });
+  };
+
   addFood = () => {
     var food = parseInt(this.state.food);
+    if(food !== 666){
     var pushItem;
-    console.log(food);
     var compare = [...this.state.inventory];
-    for(let i = 0;i<compare.length;i++){
-      if(compare[i].id === food){
-        var newid = this.createKey();
+    for (let i = 0; i < compare.length; i++) {
+      if (compare[i].id === food) {
         pushItem = compare[i];
-        pushItem.id = newid;
-        this.props.addGroceryItem(pushItem); 
-      }   
+        this.props.addGroceryItem(pushItem);
+      }
     }
   }
+  this.selectRef.current.value = 666;
+  this.updateList();
+  };
 
   removeItem = (food) => {
     this.props.removeGroceryItem(food);
-  }
+    this.updateList();
+  };
 
   async componentDidMount() {
     var service = new ProductService();
     var catalog = await service.getCatalog();
-    this.setState({ inventory: catalog,food:parseInt(catalog[0].id)});
+    this.setState({ inventory: catalog });
+    this.updateList();
   }
-
-  
+  updateList(){
+    var compare = [...this.state.inventory]
+    var update = this.props.food;
+    var newArr = compare.filter((n) => !update.includes(n));
+    if (newArr !== compare) {
+      this.setState({ inventory: newArr });
+    }
+  }
 }
+
 
 const mapStateToProps = (state) => {
   return {
-  food:state.groceryList,
-  }
-}
-export default connect(mapStateToProps,{addGroceryItem,removeGroceryItem})(GroceryList);
-
+    food: state.groceryList,
+  };
+};
+export default connect(mapStateToProps, { addGroceryItem, removeGroceryItem })(
+  GroceryList
+);

@@ -1,5 +1,3 @@
-import { isDOMComponentElement } from "react-dom/test-utils";
-
 const cartReducer = (state = [], action) => {
 
     switch (action.type) {
