@@ -33,7 +33,7 @@ class GroceryList extends Component {
             </option>
           ))}
         </select>
-        <button onClick={this.addFood}>Add</button>
+        <button className="addBtn" onClick={this.addFood}>Add</button>
         </div>
         </div>
 

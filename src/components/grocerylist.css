@@ -53,3 +53,11 @@ button.grocery-list-delete-button i {
     font-size: 1.3rem;
     color: red;
 }
+
+button.addBtn {
+    background-color: #293241;
+    color: #e0fbfc;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-weight: 600;
+}
