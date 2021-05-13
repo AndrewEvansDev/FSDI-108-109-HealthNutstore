@@ -10,31 +10,31 @@ class GroceryList extends Component {
   state = {
     inventory: [],
     food: ""
-    
+
   };
-  
+
   render() {
     return (
-      
+
       <div className="listWrap">
-        {console.log('rendering')}
         <div className="top-wrap">
-        <h3>Shopping List</h3>
-        <div className="select-wrap">
-        <select
-        ref={this.selectRef}
-          onChange={this.handleSelect}
-          id="food-select"
-        >
-          <option value={666}>Select a food</option>
-          {this.state.inventory.map((option) => (
-            <option value={option.id} key={option.id}>
-              {option.title}
-            </option>
-          ))}
-        </select>
-        <button className="addBtn" onClick={this.addFood}>Add</button>
-        </div>
+          <h3>Shopping List</h3>
+          <div className="select-wrap">
+            <select
+              ref={this.selectRef}
+              onChange={this.handleSelect}
+              id="food-select">
+              <option value={666}>Select a food</option>
+              {this.state.inventory
+                .filter((g) => !this.props.food.map((f) => f.id).includes(g.id))
+                .map((option) => (
+                  <option value={option.id} key={option.id}>
+                    {option.title}
+                  </option>
+                ))}
+            </select>
+            <button className="addBtn" onClick={this.addFood}>Add</button>
+          </div>
         </div>
 
         <div className="food-list">
@@ -43,9 +43,9 @@ class GroceryList extends Component {
               <div>{food.title}</div>
               <div className="grocery-list-desc">Description of food, receipe, reminders related to it about health.
               </div>
-                <button className="grocery-list-delete-button" onClick={() => {this.removeItem(food)}}>
-                  <i className="fa fa-trash-o" aria-hidden="true"></i>
-                </button>
+              <button className="grocery-list-delete-button" onClick={() => { this.removeItem(food) }}>
+                <i className="fa fa-trash-o" aria-hidden="true"></i>
+              </button>
             </div>
           ))}
         </div>
@@ -59,38 +59,27 @@ class GroceryList extends Component {
 
   addFood = () => {
     var food = parseInt(this.state.food);
-    if(food !== 666){
-    var pushItem;
-    var compare = [...this.state.inventory];
-    for (let i = 0; i < compare.length; i++) {
-      if (compare[i].id === food) {
-        pushItem = compare[i];
-        this.props.addGroceryItem(pushItem);
+    if (food !== 666) {
+      var pushItem;
+      var compare = [...this.state.inventory];
+      for (let i = 0; i < compare.length; i++) {
+        if (compare[i].id === food) {
+          pushItem = compare[i];
+          this.props.addGroceryItem(pushItem);
+        }
       }
     }
-  }
-  this.selectRef.current.value = 666;
-  this.updateList();
+    this.selectRef.current.value = 666;
   };
 
   removeItem = (food) => {
     this.props.removeGroceryItem(food);
-    this.updateList();
   };
 
   async componentDidMount() {
     var service = new ProductService();
     var catalog = await service.getCatalog();
     this.setState({ inventory: catalog });
-    this.updateList();
-  }
-  updateList(){
-    var compare = [...this.state.inventory]
-    var update = this.props.food;
-    var newArr = compare.filter((n) => !update.includes(n));
-    if (newArr !== compare) {
-      this.setState({ inventory: newArr });
-    }
   }
 }
 

@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import CartItem from './cartItem';
+import "./cart.css";
 
 class Cart extends Component {
     state = {  }
     render() { 
         return ( 
-            <div className="cart-wrap">
-                <h3>Ready to purchase?</h3>
-                <ul>
-                    {this.props.cart.map(
-                        x => <li>{x.title}</li>
-                    )}
-            </ul>
+            <div>                 
+                <table className="cart-wrap">
+
+                    <thead><tr><th>Item</th><th>Quantity</th><th>Price</th></tr></thead>
+                    <tbody className="">
+                        {this.props.cart.map(
+                        (x,index) => <CartItem key={index} info={x}></CartItem>
+                        )}
+                    </tbody>
+                </table>
             </div>
         );
     }

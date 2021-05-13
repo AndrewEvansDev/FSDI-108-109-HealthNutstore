@@ -26,10 +26,10 @@ class Catalog extends Component {
 
 
     return (
-      <div>
-        <div>
-          <button onClick={this.clearFilter} className="btn btn-sm btn-info">See All</button>
-          {this.state.category.map((c, index) => <button key={index} onClick={() => { this.catClick(c) }} className="btn btn-sm btn-info">{c}</button>)}
+      <div className="catalog-wrap">
+        <div className="categories">
+          <button onClick={this.clearFilter} className="catalog-categories-btn">See All</button>
+          {this.state.category.map((c, index) => <button key={index} onClick={() => { this.catClick(c) }} className="catalog-categories-btn">{c}</button>)}
         </div>
         <div className="catalog-page">
           {itemsToDisplay.map((item) => (

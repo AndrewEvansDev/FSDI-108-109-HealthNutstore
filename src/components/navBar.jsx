@@ -37,7 +37,7 @@ class NavBar extends Component {
             </Link>
           </div>
         </div>
-        <div className="form-inline my-2 my-lg-0"><Link to="/cart" className="btn btn-outline-info my-2 my-sm-0" to="/cart"><i className="fa fa-shopping-cart" aria-hidden="true" ></i>View Cart<span className="badge badge-primary cart-badge">{this.props.cart}</span></Link></div>
+        <div className="nav-cart-wrap"><Link className="nav-cart-btn" to="/cart"><i className="fa fa-shopping-cart" aria-hidden="true" ></i>  View Cart<span className="cart-nav-qty">{this.props.cart}</span></Link></div>
       </nav>
     );
   }

@@ -1,0 +1,15 @@
+:root {
+    --highlight: #3d5a80;
+    --sec: #98c1d9;
+    --bg: #e0fbfc;
+    --btn: #ee6c4d;
+    --text: #293241;
+}
+
+img.about-img {
+    max-width: 300px;
+    border: 10px solid var(--highlight);
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 5px 15px 5px var(--highlight);
+    box-shadow: 5px 5px 15px 5px var(--highlight);
+}

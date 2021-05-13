@@ -1,8 +1,20 @@
+:root {
+    --highlight: #3d5a80;
+    --sec: #98c1d9;
+    --bg: #e0fbfc;
+    --btn: #ee6c4d;
+    --text: #293241;
+}
+
 div.listWrap {
     min-height: 700px;
     margin-right: auto;
     margin-left: auto;
     width: 60%;
+    border: 1px solid var(--text);
+    border-top: none;
+    ackground: rgb(224, 251, 252);
+    background: linear-gradient(90deg, rgba(224, 251, 252, 1) 0%, rgba(152, 193, 217, 1) 50%, rgba(224, 251, 252, 1) 100%);
 }
 
 .listWrap h3 {
@@ -55,8 +67,8 @@ button.grocery-list-delete-button i {
 }
 
 button.addBtn {
-    background-color: #293241;
-    color: #e0fbfc;
+    background-color: var(--text);
+    color: var(--bg);
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     font-weight: 600;

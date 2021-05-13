@@ -1,63 +1,74 @@
-:root{
-    --highlight:#3d5a80;
-    --sec:#98c1d9;
-    --bg:#e0fbfc;
-    --btn:#ee6c4d;
-    --text:#293241; 
+:root {
+    --highlight: #3d5a80;
+    --sec: #98c1d9;
+    --bg: #e0fbfc;
+    --btn: #ee6c4d;
+    --text: #293241;
 }
-div.product-wrap{
-    -webkit-box-shadow: 2px 3px 6px 4px rgba(61,90,128,0.75); 
-    box-shadow: 2px 3px 6px 4px rgba(61,90,128,0.75);
-    margin:.6rem;
+
+div.product-wrap {
+    -webkit-box-shadow: 2px 3px 6px 4px rgba(61, 90, 128, 0.75);
+    box-shadow: 2px 3px 6px 4px rgba(61, 90, 128, 0.75);
+    margin: .6rem;
 }
-.product-wrap{
-    border:5px solid var(--sec);
-    flex:1;
+
+.product-wrap {
+    border: 5px solid var(--sec);
+    flex: 1;
     border-radius: 10px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     min-width: 250px;
     min-height: 250px;
     max-width: 350px;
-    background-position:center;
+    background-position: center;
 }
-div.product-wrap:hover{
+
+div.product-wrap:hover {
     background-size: 110%;
 }
-.top-wrap{
-    display:flex;
-    justify-content: space-between;
-    background-color:#98c1d9a1;
-    height:min-content;
-}
-.bottom-wrap{
+
+.top-wrap {
     display: flex;
-    background-color:#98c1d9a1;
     justify-content: space-between;
-    margin-top:auto;
-    margin-bottom:0;
-    align-items: flex-end;
-    border-top:5px solid var(--highlight);
+    background-color: #98c1d9a1;
+    height: min-content;
 }
-h5.product-title{
-    color:var(--text);
+
+.bottom-wrap {
+    display: flex;
+    background-color: #98c1d9a1;
+    justify-content: space-between;
+    margin-top: auto;
+    margin-bottom: 0;
+    align-items: flex-end;
+    border-top: 5px solid var(--highlight);
+}
+
+h5.product-title {
+    color: var(--text);
     text-align: left;
     font-weight: 700;
     margin: .1rem 0 0 .2rem;
 }
-h5.product-price{
-    color:var(--btn);
+
+h5.product-price {
+    color: var(--btn);
     text-align: left;
     font-weight: 700;
     margin: 0 0 0 .2rem;
 }
-svg.cart-icon{
-    color:var(--btn);
+
+i.cart-icon {
+    color: var(--btn);
     margin: .2rem .2rem 0 0;
+    font-size: 1.75rem;
 }
-svg.cart-icon:hover{
-    filter:invert(100%);
+
+i.cart-icon:hover {
+    filter: invert(100%);
 }
-.addCart span{
+
+.addCart span {
     font-weight: 600;
 }

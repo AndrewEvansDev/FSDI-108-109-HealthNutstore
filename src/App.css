@@ -1,12 +1,16 @@
-:root{
-  --highlight:#3d5a80;
-  --sec:#98c1d9;
-  --bg:#e0fbfc;
-  --btn:#ee6c4d;
-  --text:#293241;
+:root {
+    --highlight: #3d5a80;
+    --sec: #98c1d9;
+    --bg: #e0fbfc;
+    --btn: #ee6c4d;
+    --text: #293241;
 }
 
 .App {
-  text-align: center;
+    text-align: center;
+}
 
+div.App {
+    background: rgb(224, 251, 252);
+    background: radial-gradient(circle, rgba(224, 251, 252, 1) 2%, rgba(152, 193, 217, 1) 56%, rgba(61, 90, 128, 1) 100%)
 }

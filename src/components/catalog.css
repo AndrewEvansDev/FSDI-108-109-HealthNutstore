@@ -1,17 +1,50 @@
-:root{
-    --highlight:#3d5a80;
-    --sec:#98c1d9;
-    --bg:#e0fbfc;
-    --btn:#ee6c4d;
-    --text:#293241; 
+:root {
+    --highlight: #3d5a80;
+    --sec: #98c1d9;
+    --bg: #e0fbfc;
+    --btn: #ee6c4d;
+    --text: #293241;
 }
 
-div.catalog-page{
+html {
+    background: rgb(224, 251, 252);
+    background: radial-gradient(circle, rgba(224, 251, 252, 1) 2%, rgba(152, 193, 217, 1) 56%, rgba(61, 90, 128, 1) 100%)
+}
+
+div.catalog-wrap {
+    background: rgb(224, 251, 252);
+    background: radial-gradient(circle, rgba(224, 251, 252, 1) 2%, rgba(152, 193, 217, 1) 56%, rgba(61, 90, 128, 1) 100%)
+}
+
+div.categories {
+    padding-top: 1rem;
+}
+
+div.catalog-page {
     display: flex;
     justify-content: first baseline;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     padding: 1rem;
-    background: rgb(224,251,252);
-    background: radial-gradient(circle, rgba(224,251,252,1) 2%, rgba(152,193,217,1) 56%, rgba(61,90,128,1) 100%);
-    max-width:100%;
-    }
+    ;
+    max-width: 100%;
+}
+
+button.catalog-categories-btn {
+    background-color: var(--highlight);
+    color: var(--bg);
+    font-weight: 600;
+}
+
+button.catalog-categories-btn:hover {
+    filter: invert(10%)
+}
+
+button.catalog-categories-btn:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+button.catalog-categories-btn:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

@@ -24,7 +24,7 @@ class Product extends Component {
           <QuantityPicker
             onValueChange={this.handleQuantityChange} minimum={this.props.data.mimimum || 1}
           ></QuantityPicker>
-        </div>
+        </div> 
         <div className="bottom-wrap">
           <h5 className="product-price">${this.props.data.price}</h5>
           <h5 className="product-price">
@@ -33,7 +33,7 @@ class Product extends Component {
           <h6>{this.getTotal()}</h6>
 
           <span onClick={this.handleAddToCart}>
-          <i className="fa fa-cart-plus" aria-hidden="true"></i>
+          <i className="cart-icon fa fa-cart-plus" aria-hidden="true"></i>
 
           </span>
         </div>
@@ -41,7 +41,7 @@ class Product extends Component {
     );
   }
 handleAddToCart = (food) =>{
-  var food = {...this.props.data};
+  food = {...this.props.data};
   console.log(food);
   console.log(food.quantity);
   console.log(this.state.quantity);
