@@ -1,5 +1,12 @@
-table.cart-wrap {
-    margin-right: 2rem;
+main.cart-wrap {
+    margin-right: auto;
     margin-left: auto;
     background-color: white;
+}
+
+div.cart-list {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
 }

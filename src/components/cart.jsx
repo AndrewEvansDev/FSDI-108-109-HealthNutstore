@@ -2,24 +2,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CartItem from './cartItem';
 import "./cart.css";
+import { removeFromCart } from '../store/actions';
 
 class Cart extends Component {
     state = {  }
     render() { 
         return ( 
             <div>                 
-                <table className="cart-wrap">
-
-                    <thead><tr><th>Item</th><th>Quantity</th><th>Price</th></tr></thead>
-                    <tbody className="">
+                <main className="cart-wrap">
+                    <div className="cart-list">
                         {this.props.cart.map(
-                        (x,index) => <CartItem key={index} info={x}></CartItem>
+                        (x,index) => <CartItem deleteCartItem={()=>this.deleteCartItem(x)} key={index} info={x}></CartItem>
                         )}
-                    </tbody>
-                </table>
+                    </div>
+                </main>
             </div>
         );
     }
+    deleteCartItem = (f) => {
+        this.props.removeFromCart(f)
+        console.log(f)
+    }
+    
 }
 
 const mapStateToProps = (state) => {
@@ -28,4 +32,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,null) (Cart);
+export default connect(mapStateToProps,{removeFromCart}) (Cart);

@@ -17,6 +17,11 @@ const cartReducer = (state = [], action) => {
             }
             return copy;
 
+        case "REMOVE_FROM_CART":
+            var recopy = [...state]
+            recopy.filter(r => r.id !== action.payload.id)
+            return recopy
+
         default:
             return state;
     }

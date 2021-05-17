@@ -27,9 +27,6 @@ class Product extends Component {
         </div> 
         <div className="bottom-wrap">
           <h5 className="product-price">${this.props.data.price}</h5>
-          <h5 className="product-price">
-            ${this.state.totalPurchase.toFixed(2)}
-          </h5>
           <h6>{this.getTotal()}</h6>
 
           <span onClick={this.handleAddToCart}>
@@ -42,9 +39,6 @@ class Product extends Component {
   }
 handleAddToCart = (food) =>{
   food = {...this.props.data};
-  console.log(food);
-  console.log(food.quantity);
-  console.log(this.state.quantity);
   food.quantity = this.state.quantity;
   this.props.addToCart(food);
 }

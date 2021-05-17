@@ -30,3 +30,11 @@ export const addToCart = (food) => {
     }
 
 }
+export const removeFromCart = (item) => {
+
+    return {
+        type: "REMOVE_FROM_CART",
+        payload: item,
+    }
+
+}
