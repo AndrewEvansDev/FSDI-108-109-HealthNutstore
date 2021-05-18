@@ -10,3 +10,8 @@ div.cart-list {
     margin-left: auto;
     margin-right: auto;
 }
+
+h2.cart-header {
+    background-color: inherit;
+    border-bottom: 5px solid black;
+}

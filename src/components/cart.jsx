@@ -10,7 +10,9 @@ class Cart extends Component {
         return ( 
             <div>                 
                 <main className="cart-wrap">
+
                     <div className="cart-list">
+                    <h2 className="cart-header">Shopping Cart</h2>
                         {this.props.cart.map(
                         (x,index) => <CartItem deleteCartItem={()=>this.deleteCartItem(x)} key={index} info={x}></CartItem>
                         )}

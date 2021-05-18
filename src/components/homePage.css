@@ -1,0 +1,62 @@
+:root {
+    --highlight: #3d5a80;
+    --sec: #98c1d9;
+    --bg: #e0fbfc;
+    --btn: #ee6c4d;
+    --text: #293241;
+}
+
+div.homePage {
+    display: flex;
+    justify-content: center;
+}
+
+button.catalog-home,
+button.grocery-list-home,
+button.clear-gl-home {
+    background-color: var(--highlight);
+    color: var(--bg);
+    height: 5rem;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-weight: 700;
+    flex: 1;
+    font-size: 2rem;
+}
+
+button.catalog-home:hover,
+button.grocery-list-home:hover,
+button.clear-gl-home:hover {
+    filter: invert(5%)
+}
+
+.grocery-list-home a,
+.catalog-home a {
+    color: var(--bg);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+@media(max-width:1200px) {
+    button.catalog-home,
+    button.grocery-list-home,
+    button.clear-gl-home {
+        font-size: 1.2rem;
+    }
+}
+
+@media(max-width:1000px) {
+    button.catalog-home,
+    button.grocery-list-home,
+    button.clear-gl-home {
+        font-size: 1rem;
+    }
+}
+
+@media(max-width:768px) {
+    button.catalog-home,
+    button.grocery-list-home,
+    button.clear-gl-home {
+        font-size: .8rem;
+    }
+}

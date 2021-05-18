@@ -13,3 +13,20 @@ img.about-img {
     -webkit-box-shadow: 5px 5px 15px 5px var(--highlight);
     box-shadow: 5px 5px 15px 5px var(--highlight);
 }
+
+button.show-hide-email-btn {
+    background-color: var(--highlight);
+    color: var(--bg);
+    padding: .3rem 1rem;
+    margin: 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+h2.about-name {
+    font-size: 2.5rem;
+}
+
+h4.about-title {
+    font-size: 1.5rem;
+}

@@ -7,8 +7,9 @@
 }
 
 .nav-custom {
-    background-color: var(--sec);
-    color: var(--text);
+    background-color: var(--sec) !important;
+    color: var(--text) !important;
+    font-weight: 670;
 }
 
 nav a {
